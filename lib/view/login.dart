@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
     };
     var jsonResponse =null ;
 
-    var response = await http.post("http://192.168.0.103:8000/api/login", body: data);
+    var response = await http.post("http://192.168.0.106:8000/api/login", body: data);
     // var response = await http.post("http://192.168.0.108:8000/api/login", body: data);
     // var response = await http.post("http://192.168.43.104:8000/api/login", body: data);
 
@@ -102,6 +102,27 @@ class _LoginPageState extends State<LoginPage> {
         elevation: 0.0,
         color: Colors.purple,
         child: Text("Sign In", style: TextStyle(color: Colors.white70)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+      ),
+    );
+  }
+  
+  Container buttonRegistrar() {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: 40.0,
+      padding: EdgeInsets.symmetric(horizontal: 15.0),
+      margin: EdgeInsets.only(top: 15.0),
+      child: RaisedButton(
+        onPressed: emailController.text == "" || passwordController.text == "" ? null : () {
+          setState(() {
+            _isLoading = true;
+          });
+          signIn(emailController.text, passwordController.text);
+        },
+        elevation: 0.0,
+        color: Colors.purple,
+        child: Text("Registrar", style: TextStyle(color: Colors.white70)),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
       ),
     );

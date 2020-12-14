@@ -2,6 +2,7 @@ import 'package:android/controllers/http_service.dart';
 import 'package:android/pages/home_page.dart';
 import 'package:android/view/login.dart';
 import 'package:android/view/post_detail.dart';
+import 'package:android/view/register.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart'; 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,7 +13,8 @@ import 'models/post_model.dart';
 
 void main() {
   runApp(GetMaterialApp(
-    home: HomePage(),
+    // home: HomePage(),
+    home: Register(),
   ));
 }
 

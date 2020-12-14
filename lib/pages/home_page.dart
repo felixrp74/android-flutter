@@ -3,13 +3,14 @@
 import 'package:android/controllers/home_controller.dart';
 import 'package:android/pages/home_pages_widgets/home_list.dart';
 import 'package:android/view/login.dart';
+import 'package:android/view/register.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
 
-   
+    
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -32,7 +33,7 @@ class _HomePageState extends State<HomePage> {
           (Route<dynamic> route) => false);
     }
   }
-
+ 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
@@ -57,6 +58,8 @@ class _HomePageState extends State<HomePage> {
           body: Center(
             child: Text("homa babosa"),
           )
+          // body: Register(),
+
         );
       },
       
