@@ -53,7 +53,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          body: HomeList()
+          // body: HomeList()
+          body: Center(
+            child: Text("homa babosa"),
+          )
         );
       },
       

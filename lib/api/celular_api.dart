@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+ 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:android/models/celular_model.dart';
 
@@ -6,17 +6,11 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class CelularAPI { 
-  
-  // SharedPreferences sharedPreferences  = await SharedPreferences.getInstance();
-  
-  final _dio = Dio();
-
-  // String token = "";
+   
   final String postUrl = "http://192.168.0.103:8000/api/habilidad";
   // final String postUrl = "http://192.168.0.108:8000/api/celular";
 
   
-
   Future <List<Celular>> getCelular() async {
   
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();

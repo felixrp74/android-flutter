@@ -2,14 +2,16 @@ import 'package:android/controllers/http_service.dart';
 import 'package:android/pages/home_page.dart';
 import 'package:android/view/login.dart';
 import 'package:android/view/post_detail.dart';
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart'; 
 import 'package:shared_preferences/shared_preferences.dart';
- 
+
+// import 'package:'
 
 import 'models/post_model.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(GetMaterialApp(
     home: HomePage(),
   ));
 }
@@ -36,9 +38,18 @@ class _PostsPageState extends State<PostsPage> {
   checkLoginStatus() async {
     sharedPreferences = await SharedPreferences.getInstance();
     if(sharedPreferences.getString("token") == null) {
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (BuildContext context) => LoginPage()), 
-          (Route<dynamic> route) => false);
+      // Navigator.of(context).pushAndRemoveUntil(
+      //   MaterialPageRoute(builder: (BuildContext context) => LoginPage()), 
+      //     (Route<dynamic> route) => false);
+
+      // Get.offUntil(
+      //   LoginPage(), 
+      //   (route) => false
+      //   )
+
+      Get.off( LoginPage());
+      // Get.to(page)
+
     }
   }
 
@@ -53,7 +64,11 @@ class _PostsPageState extends State<PostsPage> {
             onPressed: () {
               sharedPreferences.clear();
               // sharedPreferences.commit();
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => LoginPage()), (Route<dynamic> route) => false);
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (BuildContext context) => LoginPage()), 
+                (Route<dynamic> route) => false);
+
+                // Get.offUntil('page', (route) => false)
             },
             child: Text("Salir", style: TextStyle(color: Colors.white)),
           ),
