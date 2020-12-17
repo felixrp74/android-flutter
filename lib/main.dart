@@ -13,8 +13,8 @@ import 'models/post_model.dart';
 
 void main() {
   runApp(GetMaterialApp(
-    // home: HomePage(),
-    home: Register(),
+    home: HomePage(),
+    // home: Register(),
   ));
 }
 

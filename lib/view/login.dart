@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import 'package:android/pages/home_page.dart';
+import 'package:android/view/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -37,6 +39,7 @@ class _LoginPageState extends State<LoginPage> {
             headerSection(),
             textSection(),
             buttonSection(),
+            buttonRegistrar(),
           ],
         ),
       ),
@@ -101,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
         },
         elevation: 0.0,
         color: Colors.purple,
-        child: Text("Sign In", style: TextStyle(color: Colors.white70)),
+        child: Text("Iniciar", style: TextStyle(color: Colors.white70)),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
       ),
     );
@@ -114,11 +117,9 @@ class _LoginPageState extends State<LoginPage> {
       padding: EdgeInsets.symmetric(horizontal: 15.0),
       margin: EdgeInsets.only(top: 15.0),
       child: RaisedButton(
-        onPressed: emailController.text == "" || passwordController.text == "" ? null : () {
-          setState(() {
-            _isLoading = true;
-          });
-          signIn(emailController.text, passwordController.text);
+        onPressed:  () { 
+          Get.to(Register()); 
+          
         },
         elevation: 0.0,
         color: Colors.purple,
@@ -170,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
       margin: EdgeInsets.only(top: 50.0),
       padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
-      child: Text("API",
+      child: Text("APICITO",
           style: TextStyle(
               color: Colors.white70,
               fontSize: 40.0,

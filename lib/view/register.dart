@@ -55,8 +55,8 @@ final GlobalKey<FormFieldState<String>> _passwordFieldKey =
                       border: UnderlineInputBorder(),
                       filled: true,
                       icon: Icon(Icons.person),
-                      hintText: 'Como te llamara la gente?',
-                      labelText: 'Name *',
+                      hintText: 'Como te llamaras?',
+                      labelText: 'Nombre *',
                     ),
                     onSaved: (String value) {
                       this._name = value;
@@ -90,16 +90,28 @@ final GlobalKey<FormFieldState<String>> _passwordFieldKey =
                     helperText: 'nomas que  8 caracteres.',
                     labelText: 'Password *',
                     onFieldSubmitted: (String value) {
+                      // this._password = value;
+                      // update();
                       setState(() {
                         this._password = value;
-                        // Update();
                       });
                     },
                   ),
                   const SizedBox(height: 24.0),
                   RaisedButton(
                     onPressed: nameController.text == "" || emailController.text == "" || this._password == "" ? null : () {
+                    // onPressed: () {
+                      // print(nameController.text);
+                      // print(emailController.text); 
+                      // print(this._password);
+
+                      _.name = nameController.text;
+                      _.email = emailController.text;
+                      _.password = this._password;
+
                       _.registrar();
+                      // Get.to(page)
+                      // _.registrar();
                     },
                     color: Colors.purple,
                       child: Text("Registrarse", style: TextStyle(color: Colors.white70)),

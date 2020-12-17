@@ -7,7 +7,8 @@ import 'dart:convert';
 
 class CelularAPI { 
    
-  final String postUrl = "http://192.168.0.103:8000/api/habilidad";
+  final String postUrl = "http://192.168.0.106:8000/api/habilidad";
+  // final String postUrl = "http://192.168.0.103:8000/api/habilidad";
   // final String postUrl = "http://192.168.0.108:8000/api/celular";
 
   

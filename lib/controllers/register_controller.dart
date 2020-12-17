@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 
+import 'package:android/pages/home_page.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -17,96 +18,56 @@ class RegisterController extends GetxController {
   String password;
 
 
+
+
   // here we go 
   String urlRegistrar = "http://192.168.0.103:8000/api/register";
-
-  
-
-   
-  // void  registrar(String name, String email, String password) async {
-  // void  registrar() async {
-
-  //   // sharedPreferences = await SharedPreferences.getInstance();
-  //   // String tokencito = "Bearer "+sharedPreferences.getString("token");
-  //   // print("-==-=-=-=-=-=-------${toke?ncito}--------------------"); 
-
-  //   var headerList = <String, String>{};
-
-  //   // JSON
-  //   // QUERY
-
-  //   // Set Http Request Headers
-  //   headerList['name'] = name;
-  //   headerList['email'] = email;
-  //   headerList['password'] = password;
-    
-  //   http.Response res = await http.post(
-  //     urlRegistrar,
-  //     headers: headerList
-  //   );
-
-
-  //   // =======================FIN DART
-
-  //   // print("-==-=-=-=-=-=-------${res.statusCode}--------------------"); 
-  //   if ( res.statusCode == 200 ) {
-  //     // print("=============DANCING============");
-  //     // List<dynamic> body = jsonDecode(res.body);
-
-  //     // List<Post> posts = 
-  //     //   body.map((dynamic item) => Post.fromJson(item)).toList();
-
-  //     // return posts;
-
-  //   }else {
-  //     print("=============REGISTER============");
-  //     throw "cant register";
-  //   }
-  // }
-
-  
+ 
   // =================EJEMPLO DART
   
   @override
   void onReady(){
     super.onReady();
     print("ON READY REGISTRAR");
+   
     // registrar();
     // this.loadCelular();
   }
 
   Future<http.Response> registrar() async {
+      // String nombre = "hey@g";
+      // String email = "hey@g";
+      // String pass = "hey@g";
 
-    // http.Response res = await http.post(
-    //   urlRegistrar,
-    //   headers: <String, String>{
-    //     'Content-Type': 'application/json; charset=UTF-8',
-    //   },
+    print("$name");
+    print("$email");
+    print("$password");
 
-    //   body: jsonEncode(<String, String>{
-    //     'name': name,
-    //     'email': email,
-    //     'password': password
-    //   }),
+    http.Response res = await http.post(
+      'http://192.168.0.106:8000/api/register',
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+
+      body: jsonEncode(<String, String>{
+        'name': name,
+        'email': email,
+        'password': password
+      }),
       
-    // ); 
+    ); 
 
 
     print("=============REGISTRAR JAJAJAS============");
 
-    // if ( res.statusCode == 200 ) {
-    //   print("=============DANCING============");
-    //   // List<dynamic> body = jsonDecode(res.body);
+    if ( res.statusCode == 200 ) {
+      print("=============DANCING============");
+      Get.to(HomePage());
 
-    //   // List<Post> posts = 
-    //   //   body.map((dynamic item) => Post.fromJson(item)).toList();
-
-    //   // return posts;
-
-    // }else {
-    //   print("=============REGISTER============");
-    //   throw "cant register";
-    // }
+    }else {
+      print("=============REGISTER============");
+      throw "cant register";
+    }
   }
 
 

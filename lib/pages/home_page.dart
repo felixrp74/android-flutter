@@ -40,11 +40,11 @@ class _HomePageState extends State<HomePage> {
       init: HomeController(),
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(
+          appBar: AppBar( 
             title: Text("No estoy holi"),
             actions: <Widget>[
               FlatButton(
-                onPressed: () {
+                onPressed: () { 
                   sharedPreferences.clear();
                   // sharedPreferences.commit();
                   Navigator.of(context).pushAndRemoveUntil( 
@@ -54,10 +54,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          // body: HomeList()
-          body: Center(
-            child: Text("homa babosa"),
-          )
+          body: HomeList()
+          // body: Center(
+          //   child: Text("homa babosa"),
+          // )
           // body: Register(),
 
         );
