@@ -38,7 +38,7 @@ class RegisterController extends GetxController {
       // String nombre = "hey@g";
       // String email = "hey@g";
       // String pass = "hey@g";
-
+ 
     print("$name");
     print("$email");
     print("$password");

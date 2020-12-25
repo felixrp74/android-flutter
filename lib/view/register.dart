@@ -82,36 +82,55 @@ final GlobalKey<FormFieldState<String>> _passwordFieldKey =
                       print('email=$_email');
                     },
                   ),
-                  const SizedBox(height: 24.0),
-                  // "Password" form.
-                  PasswordField(
-                    // controller: passwordController,
-                    fieldKey: _passwordFieldKey,
-                    helperText: 'nomas que  8 caracteres.',
-                    labelText: 'Password *',
-                    onFieldSubmitted: (String value) {
-                      // this._password = value;
-                      // update();
-                      setState(() {
-                        this._password = value;
-                      });
+                  // const SizedBox(height: 24.0),
+
+                  // // "Password" form.
+                  // PasswordField(
+                  //   // controller: passwordController,
+                  //   fieldKey: _passwordFieldKey,
+                  //   helperText: 'nomas que  8 caracteres.',
+                  //   labelText: 'Password *',
+                  //   onFieldSubmitted: (String value) {
+                  //     // this._password = value;
+                  //     // update();
+                  //     setState(() {
+                  //       this._password = value;
+                  //     });
+                  //   },
+                  // ),
+                  TextFormField(
+                    // mSecurityInputMethodService : 
+                    controller: passwordController,
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      filled: true,
+                      icon: Icon(Icons.panorama_fish_eye),
+                      hintText: 'passwprd',
+                      labelText: 'contrasena',
+                    ),
+                    keyboardType: TextInputType.visiblePassword,
+                    onSaved: (String value) {
+                      this._password = value;
+                      // print('email=$_email');
                     },
                   ),
                   const SizedBox(height: 24.0),
                   RaisedButton(
-                    onPressed: nameController.text == "" || emailController.text == "" || this._password == "" ? null : () {
-                    // onPressed: () {
-                      // print(nameController.text);
-                      // print(emailController.text); 
-                      // print(this._password);
+                    // onPressed: nameController.text == "" || emailController.text == "" || this._password == "" ? null : () {
+                   
+                    //   _.name = nameController.text;
+                    //   _.email = emailController.text;
+                    //   _.password = this._password;
 
+                    //   _.registrar(); 
+                    // },
+                    onPressed: (){
                       _.name = nameController.text;
                       _.email = emailController.text;
-                      _.password = this._password;
+                      // _.password = this._password;
+                      _.password = passwordController.text;
 
-                      _.registrar();
-                      // Get.to(page)
-                      // _.registrar();
+                      _.registrar(); 
                     },
                     color: Colors.purple,
                       child: Text("Registrarse", style: TextStyle(color: Colors.white70)),
